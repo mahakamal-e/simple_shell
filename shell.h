@@ -14,7 +14,7 @@
 
 
 #define BUFFER_SIZE 1024
-#define WHITESPACE " \t\r\n\a"
+#define DELIMITER_ " \t\n"
 #define PRINT_ERR(c) (write(STDERR_FILENO, c, _my_strlen(c)))
 #define PRINTF(str) (write(STDERR_FILENO, str, _my_strlen(str)))
 
@@ -59,4 +59,21 @@ void reverse_array(char *str, int len);
 char *_convert_int(int num);
 
 void handle_signal(int s);
+
+char *read_user_input(void);
+
+char **parse_string(char *input_line);
+
+
+void handle_comm(char **_words, char **argv, int ex_st, int cmd_c, char **env);
+
+int _atoi(char *s);
+
+int check_digit(char *input_s);
+
+void printNot_foundError(char *command_name, char *cmd_, int cmd_c);
+
+void printCustomError(char *command_name, char **cmd_, int cmd_c);
+
+int excute_command(char **command_, char **argv, char **envp, int cmd_c);
 #endif

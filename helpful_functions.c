@@ -69,7 +69,7 @@ void handle_signal(int s)
  */
 char *_convert_int(int num)
 {
-	char *_buffer = malloc(20);
+	char *_buffer = malloc(20 * sizeof(char));
 	int iterat = 0;
 
 	do {
