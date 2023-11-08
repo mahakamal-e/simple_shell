@@ -19,23 +19,12 @@ char *searchInDirectory(char *cmd_)
 	return (NULL);
 }
 /**
- * searchInPath - handle path that get from getenv function
- * @cmd_: command
- * @_path: the path
- * Return: if file exists return path of the file otherwise
- * return NULL
- */
-char *searchInPath(char *cmd_, char *_path)
-{
-  
-/**
  * path_command - handle path for excutable command
  * @cmd_: parsed input (command)
  * @envp: array of envp
  *
  * Return: a pointer to a null-terminated string representing the full path
  *  of the executable file that corresponds to the given command name
- *
  */
 char *path_command(char *cmd_, char **envp)
 {
