@@ -82,4 +82,6 @@ char *searchInDirectory(char *cmd_);
 char *searchInPath(char *_cmd, char *path_cmd);
 
 char *path_command(char *cmd_, char __attribute__((unused)) **envp);
+
+int check_builtin(char *cmd_);
 #endif
