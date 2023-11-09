@@ -21,6 +21,6 @@ char *path_command(char *cmd_, char __attribute__((unused)) **envp)
 	path_cmd = _getenv("PATH", envp);
 	if (path_cmd == NULL)
 		return (NULL);
-	
+
 	return (searchInPath(cmd_, path_cmd));
 }
