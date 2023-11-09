@@ -15,7 +15,7 @@ void handle_comm(char **_words, char **argv, int ex_st, int cmd_c, char **env)
 {
 	if (check_builtin(_words[0]))
 	{
-		handle_builtin(_words, argv, &ex_st, cmd_c, env);
+		bultin_slctr(_words, &ex_st, env);
 	}
 	else
 	{
@@ -59,8 +59,8 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 
 			free(_words);
 
-			if (exit_status != 0)
-				break;
+			/*if (exit_status != 0)
+				break;*/
 		}
 		return (exit_status);
 	}

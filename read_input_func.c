@@ -15,7 +15,7 @@ char *read_user_input(void)
 	if (read_char == -1)
 	{
 		perror("Error: Failed to read input from user");
-		free(input_line);
+		/*free(input_line);*/
 		input_line  = NULL;
 	}
 	return (input_line);

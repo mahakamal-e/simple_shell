@@ -21,24 +21,7 @@
 extern char **environ;
 
 
-/**
- * struct shellData - struct that store command array
- *
- * @arg_v: pointer to argv
- * @enviroment_: pointer to enviromental variables
- * @commad: array of command
- * @commad_length: counter
- * @_status: variable to store the statues of last excuted
- * Description: struct for store command line and env var
- */
-typedef struct shellData
-{
-char **arg_v;
-char **enviroment_;
-char **commad;
-int commad_length;
-int _status;
-} shell_data_t;
+
 
 void print_on_prompt(void);
 
@@ -84,4 +67,12 @@ char *searchInPath(char *_cmd, char *path_cmd);
 char *path_command(char *cmd_, char __attribute__((unused)) **envp);
 
 int check_builtin(char *cmd_);
+void bultin_slctr(char **cmds, int *ex_st, char **ev);
+void _excuteEnv(char **cmds, int *ex_st, char **ev);
+
+
+char *readline(void);
+char *_getenv(char *variable, char **environment);
+void _free(char **input);
+char *_handlePath(char *cmd, char **environment);
 #endif

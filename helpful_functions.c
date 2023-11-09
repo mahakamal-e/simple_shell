@@ -9,7 +9,7 @@
 
 void print_on_prompt(void)
 {
-	PRINTF("$");
+	PRINTF("$ ");
 }
 
 /**

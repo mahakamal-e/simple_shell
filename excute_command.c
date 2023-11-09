@@ -15,10 +15,11 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 	char *p_cmd;
 
 	p_cmd = path_command(command_[0], envp);
-	if (p_cmd == NULL)
+
+	if (!p_cmd)
 	{
 		printNot_foundError(argv[0], command_[0], cmd_c);
-		free(command_);
+		_free(command_);
 		return (127);
 	}
 
@@ -28,7 +29,9 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 	{
 		if (execve(p_cmd, command_, envp) == -1)
 			perror("Execve failed: unable to execute file");
-		perror("fork() failed");
+		free(p_cmd);
+		p_cmd = NULL;
+		_free(command_);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -36,7 +39,26 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 		if (waitpid(pid, &_status, 0) == -1)
 			perror("waitpid() failed");
 		free(p_cmd);
-		free(command_);
+		p_cmd = NULL;
+		_free(command_);
 	}
 	return (WEXITSTATUS(_status));
+}
+/**
+ * _free - free of tokens
+ * @input: to get free
+ */
+void _free(char **input)
+{
+	int i;
+
+	if (!input)
+	{
+		return;
+	};
+	for (i = 0; input[i]; i++)
+	{
+		free(input[i]), input[i] = NULL;
+	};
+	free(input), input = NULL;
 }
