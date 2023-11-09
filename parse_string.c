@@ -15,18 +15,15 @@ char **parse_string(char *input_line)
 	arr_str = malloc(8 * sizeof(char *));
 
 	if (arr_str == NULL)
-	{
 		perror("failed to allocate memory"), exit(1);
-	}
+
 	token = strtok(input_line, DELIMITER_);
 
 	while (token != NULL)
 	{
 		arr_str[i_idx] = _my_strdup(token);
 		if (arr_str[i_idx] == NULL)
-		{
-			exit(1);
-		}
+			perror("failed to allocate memory"), exit(1);
 		i_idx++;
 
 		token = strtok(NULL, DELIMITER_);

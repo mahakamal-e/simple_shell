@@ -76,4 +76,10 @@ void printNot_foundError(char *command_name, char *cmd_, int cmd_c);
 void printCustomError(char *command_name, char **cmd_, int cmd_c);
 
 int excute_command(char **command_, char **argv, char **envp, int cmd_c);
+
+char *searchInDirectory(char *cmd_);
+
+char *searchInPath(char *_cmd, char *path_cmd);
+
+char *path_command(char *cmd_, char __attribute__((unused)) **envp);
 #endif
