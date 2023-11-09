@@ -44,9 +44,12 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 	{
 		while (1)
 		{
-			PRINTF("$");
-			input_line = NULL;
 			input_line = read_user_input();
+
+			if (input_line == NULL)
+			{
+				print_on_prompt();
+			}
 
 			command_count++;
 
@@ -57,7 +60,7 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 			}
 			handle_comm(_words, argv, exit_status, command_count, env);
 
-			free(_words);
+			/*free(_words);*/
 
 			/*if (exit_status != 0)
 				break;*/

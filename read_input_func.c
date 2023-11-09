@@ -7,16 +7,21 @@
 char *read_user_input(void)
 {
 	ssize_t read_char;
-	char *input_line = NULL;
+	char *input_ = NULL;
 	size_t size_line = 0;
 
-	read_char = getline(&input_line, &size_line, stdin);
+	if (isatty(STDIN_FILENO))
+	{
+		print_on_prompt();
+	}
+
+	read_char = getline(&input_, &size_line, stdin);
 
 	if (read_char == -1)
 	{
 		perror("Error: Failed to read input from user");
-		/*free(input_line);*/
-		input_line  = NULL;
+		free(input_);
+		input_ = NULL;
 	}
-	return (input_line);
+	return (input_);
 }
