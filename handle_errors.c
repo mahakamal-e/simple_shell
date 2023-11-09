@@ -36,7 +36,7 @@ void printCustomError(char *command_name, char **cmd_, int cmd_c)
 	PRINT_ERR(command_name);
 	PRINT_ERR(": ");
 	PRINT_ERR(command_count);
-	PRINT_ERR(": Illegal number: ");
+	PRINT_ERR(": exit: Illegal number: ");
 	PRINT_ERR(cmd_[1]);
 	PRINT_ERR("\n");
 

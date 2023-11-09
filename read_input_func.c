@@ -10,11 +10,6 @@ char *read_user_input(void)
 	char *input_ = NULL;
 	size_t size_line = 0;
 
-	if (isatty(STDIN_FILENO))
-	{
-		print_on_prompt();
-	}
-
 	read_char = getline(&input_, &size_line, stdin);
 
 	if (read_char == -1)

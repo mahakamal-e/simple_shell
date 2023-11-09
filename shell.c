@@ -44,6 +44,8 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 	{
 		while (1)
 		{
+			print_on_prompt();
+
 			input_line = read_user_input();
 
 			if (input_line == NULL)
@@ -62,8 +64,8 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 
 			/*free(_words);*/
 
-			/*if (exit_status != 0)
-				break;*/
+			/*if (exit_status != 0)*/
+				/*break;*/
 		}
 		return (exit_status);
 	}

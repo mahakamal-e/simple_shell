@@ -7,23 +7,26 @@
  *
  * Return: the associated value to the string.
  */
-char *_getenv(char *variable, char **environment)
+char *_getenv(char *name, char **envp)
 {
 	char *tmp, *key, *value, *env;
-	int i;
+	int iterat = 0;
 
-	for (i = 0; environment[i]; i++)
+	while (envp[iterat])
 	{
-		tmp = _my_strdup(environment[i]);
+		tmp = _my_strdup(envp[iterat]);
 		key = strtok(tmp, "=");
-		if (_my_strcmp(key, variable) == 0)
+		if (_my_strcmp(key, name) == 0)
 		{
 			value = strtok(NULL, "\n");
 			env = _my_strdup(value);
-			free(tmp), tmp = NULL;
+			free(tmp);
+			tmp = NULL;
 			return (env);
 		}
-		free(tmp), tmp = NULL;
+		free(tmp);
+		tmp = NULL;
+		iterat++;
 	}
 	return (NULL);
 }

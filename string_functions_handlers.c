@@ -13,7 +13,7 @@ char *_my_strcpy(char *s1, char *s2)
 
 	while (*s2 != '\0')
 	{
-		*result_string = *s2;
+		*s1 = *s2;
 		s2++;
 		s1++;
 	}

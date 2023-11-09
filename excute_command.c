@@ -10,6 +10,7 @@
  */
 int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 {
+
 	pid_t pid;
 	int _status;
 	char *p_cmd;
@@ -50,15 +51,18 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c)
  */
 void _free(char **input)
 {
-	int i;
+	int iterat = 0;
 
-	if (!input)
+	if (input == NULL)
 	{
 		return;
-	};
-	for (i = 0; input[i]; i++)
+	}
+	while (input[iterat])
 	{
-		free(input[i]), input[i] = NULL;
-	};
-	free(input), input = NULL;
+		free(input[iterat]);
+		input[iterat] = NULL;
+		iterat++;
+	}
+	free(input);
+	input = NULL;
 }
