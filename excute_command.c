@@ -61,15 +61,12 @@ void _free(char **input)
 	int iterat = 0;
 
 	if (input == NULL)
-	{
 		return;
-	}
-	while (input[iterat])
+
+	while (input[iterat] != NULL)
 	{
 		free(input[iterat]);
-		input[iterat] = NULL;
 		iterat++;
 	}
 	free(input);
-	input = NULL;
 }

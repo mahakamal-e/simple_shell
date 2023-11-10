@@ -8,7 +8,7 @@
  */
 int check_builtin(char *cmd_)
 {
-	char *arr_builtin[] = {"cd", "env", "exit", NULL};
+	char *arr_builtin[] = {"env", "cd", "exit", NULL};
 
 	int iterat = 0;
 

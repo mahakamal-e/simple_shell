@@ -11,16 +11,17 @@
  *
  * Return: void
  */
-void handle_comm(char **_words, char **argv, int ex_st, int cmd_c, char **env)
+void handle_comm(char **_words, char **argv, int *ex_st, int cmd_c, char **env)
 {
 	if (check_builtin(_words[0]))
 	{
-		bultin_slctr(_words, &ex_st, env);
+		bultin_slctr(_words, ex_st, env);
 	}
 	else
 	{
-		ex_st = excute_command(_words, argv, env, cmd_c);
+		*ex_st = excute_command(_words, argv, env, cmd_c);
 	}
+
 }
 
 /**
@@ -60,7 +61,7 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 			{
 				continue;
 			}
-			handle_comm(_words, argv, exit_status, command_count, env);
+			handle_comm(_words, argv, &exit_status, command_count, env);
 
 			/*free(_words);*/
 
@@ -69,6 +70,7 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 		}
 		return (exit_status);
 	}
+
 	/*free(input_line);*/
 	return (exit_status);
 }

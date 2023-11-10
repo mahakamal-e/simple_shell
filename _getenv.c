@@ -9,24 +9,13 @@
  */
 char *_getenv(char *name, char **envp)
 {
-	char *tmp, *key, *value, *env;
 	int iterat = 0;
 
 	while (envp[iterat] != NULL)
 	{
-
-		tmp = _my_strdup(envp[iterat]);
-		key = strtok(tmp, "=");
-		if (_my_strcmp(key, name) == 0)
-		{
-			value = strtok(NULL, "\n");
-			env = _my_strdup(value);
-			free(tmp);
-			tmp = NULL;
-			return (env);
-		}
-		free(tmp);
-		tmp = NULL;
+		if (_my_strncmp(envp[iterat], name, _my_strlen(name)) == 0 &&
+		    envp[iterat][_my_strlen(name)] == '=')
+			return (&envp[iterat][_my_strlen(name) + 1]);
 		iterat++;
 	}
 	return (NULL);

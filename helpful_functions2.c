@@ -25,3 +25,28 @@ int check_digit(char *input_s)
 	}
 	return (1);
 }
+/**
+ * _my_strncmp - compare two strins up to the specific length
+ * or find the differance
+ *
+ * @s1: first string
+ * @s2: second string
+ * @num: maximum numbers of character to compare between
+ * Return: integer value the result of string comparison
+ */
+int _my_strncmp(char *s1, char *s2, size_t num)
+{
+	size_t iterat = 0;
+
+	while (iterat < num)
+	{
+		if (s1[iterat] != s2[iterat])
+			return (s1[iterat] - s2[iterat]);
+
+
+		if (s1[iterat] == '\0' || s2[iterat] == '\0')
+			return (s1[iterat] - s2[iterat]);
+		iterat++;
+	}
+	return (0);
+}

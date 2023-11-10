@@ -48,7 +48,8 @@ char *read_user_input(void);
 char **parse_string(char *input_line);
 
 
-void handle_comm(char **_words, char **argv, int ex_st, int cmd_c, char **env);
+void handle_comm
+(char **_words, char **argv, int *ex_st, int cmd_c, char **env);
 
 int _atoi(char *s);
 
@@ -67,10 +68,21 @@ char *searchInPath(char *_cmd, char *path_cmd);
 char *path_command(char *cmd_, char __attribute__((unused)) **envp);
 
 int check_builtin(char *cmd_);
+
+
 void bultin_slctr(char **cmds, int *ex_st, char **ev);
 void _excuteEnv(char **cmds, int *ex_st, char **ev);
 char *_getenv(char *name, char **envp);
 
 void _free(char **input);
 void remove_quotes(char *str);
+
+void *_memmove(void *dest, const void *src, size_t n);
+
+int _my_strncmp(char *s1, char *s2, size_t num);
+
+
+void _my_exit(char **arg);
+
+void handleBuiltin_cd(char **cmds, int *ex_st, char **ev);
 #endif
