@@ -72,4 +72,5 @@ void _excuteEnv(char **cmds, int *ex_st, char **ev);
 char *_getenv(char *name, char **envp);
 
 void _free(char **input);
+void remove_quotes(char *str);
 #endif

@@ -12,8 +12,9 @@ char *_getenv(char *name, char **envp)
 	char *tmp, *key, *value, *env;
 	int iterat = 0;
 
-	while (envp[iterat])
+	while (envp[iterat] != NULL)
 	{
+
 		tmp = _my_strdup(envp[iterat]);
 		key = strtok(tmp, "=");
 		if (_my_strcmp(key, name) == 0)
