@@ -68,8 +68,6 @@ int main(int argc, char **argv, char **env)
 
 			handle_comm(_words, argv, &exit_status, command_count, env);
 			free(input_line);
-			/*if (exit_status != 0)*/
-				/*break;*/
 		}
 	}
 	return (exit_status);
