@@ -69,8 +69,6 @@ char *path_command(char *cmd_, char __attribute__((unused)) **envp);
 
 int check_builtin(char *cmd_);
 
-
-
 void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev);
 void _excuteEnv(char **cmds, int *ex_st, char **ev);
 char *_getenv(char *name, char **envp);
