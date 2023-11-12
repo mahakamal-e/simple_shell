@@ -15,7 +15,7 @@ void handle_comm(char **_words, char **argv, int *ex_st, int cmd_c, char **env)
 {
 	if (check_builtin(_words[0]))
 	{
-		bultin_slctr(_words, ex_st, env);
+		bultin_slctr(_words, argv, ex_st, cmd_c, env);
 	}
 	else
 	{
@@ -34,12 +34,18 @@ void handle_comm(char **_words, char **argv, int *ex_st, int cmd_c, char **env)
  * Return: Alwayes return 0
  */
 
-int main(int __attribute__((unused)) argc, char **argv, char **env)
+int main(int argc, char **argv, char **env)
 {
 	char *input_line;
 	int exit_status = 0;
 	int command_count = 0;
 	char **_words;
+
+	if (argc > 1)
+	{
+		non_interactive(argv[1], argv, env);
+		return (EXIT_SUCCESS);
+	}
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -53,24 +59,18 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 			{
 				print_on_prompt();
 			}
-
 			command_count++;
-
 			_words = parse_string(input_line);
 			if (!_words)
 			{
 				continue;
 			}
+
 			handle_comm(_words, argv, &exit_status, command_count, env);
-
-			/*free(_words);*/
-
+			free(input_line);
 			/*if (exit_status != 0)*/
 				/*break;*/
 		}
-		return (exit_status);
 	}
-
-	/*free(input_line);*/
 	return (exit_status);
 }

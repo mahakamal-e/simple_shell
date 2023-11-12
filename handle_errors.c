@@ -29,7 +29,7 @@ void printNot_foundError(char *command_name, char *cmd_, int cmd_c)
  *
  * Return: void
  */
-void printCustomError(char *command_name, char **cmd_, int cmd_c)
+void printCustomError(char *command_name, char *cmd_, int cmd_c)
 {
 	char *command_count = _convert_int(cmd_c);
 
@@ -37,7 +37,7 @@ void printCustomError(char *command_name, char **cmd_, int cmd_c)
 	PRINT_ERR(": ");
 	PRINT_ERR(command_count);
 	PRINT_ERR(": exit: Illegal number: ");
-	PRINT_ERR(cmd_[1]);
+	PRINT_ERR(cmd_);
 	PRINT_ERR("\n");
 
 	free(command_count);

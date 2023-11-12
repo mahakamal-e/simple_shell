@@ -6,51 +6,42 @@
  * @envp: array of enviroments
  * @cmd_c: index command count
  *
- * Return: ws status
+ * Return: ws status status that exit with
  */
 int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 {
-
 	pid_t pid;
-	int _status;
 	char *p_cmd;
-
-	p_cmd = path_command(command_[0], envp);
-
-	if (!p_cmd)
-	{
-		printNot_foundError(argv[0], command_[0], cmd_c);
-		_free(command_);
-		return (127);
-	}
-	if (access(p_cmd, X_OK) == -1)
-	{
-		printNot_foundError(argv[0], command_[0], cmd_c);
-		free(p_cmd);
-		_free(command_);
-		return (127);
-	}
-
-	pid = fork();
-
-	if (pid == 0)
-	{
-		if (execve(p_cmd, command_, envp) == -1)
+	int _status;
+		p_cmd = path_command(command_[0], envp);
+		if (!p_cmd)
 		{
-			perror("Execve failed: unable to execute file");
-			exit(EXIT_FAILURE);
+			printNot_foundError(argv[0], command_[0], cmd_c);
+			_free(command_);
+			return (127);
 		}
-	}
-	else
-	{
-		if (waitpid(pid, &_status, 0) == -1)
-			perror("waitpid() failed");
-	}
-	free(p_cmd);
-	_free(command_);
-	return (WEXITSTATUS(_status));
+		if (access(p_cmd, X_OK) == -1)
+		{
+			printNot_foundError(argv[0], command_[0], cmd_c);
+			free(p_cmd), _free(command_);
+			return (127);
+		}
+		pid = fork();
+		if (pid == 0)
+		{
+			if (execve(p_cmd, command_, envp) == -1)
+			{
+				perror("Execve failed: unable to execute file"), exit(EXIT_FAILURE);
+			}
+		}
+		else
+		{
+			if (waitpid(pid, &_status, 0) == -1)
+				perror("waitpid() failed");
+		}
+		free(p_cmd), _free(command_);
+		return (WEXITSTATUS(_status));
 }
-
 
 /**
  * _free - free of tokens

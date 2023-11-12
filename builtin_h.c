@@ -2,14 +2,16 @@
 /**
  * bultin_slctr - dispatcher choose which function to apply for builtin command
  * @cmds: command
+ * @argv: array of args
  * @ex_st: the exit status the status that exit with
+ * @i_cmd: index of command
  * @ev: environment array
  */
-void bultin_slctr(char **cmds, int *ex_st, char **ev)
+void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev)
 {
 	if (_my_strcmp(cmds[0], "exit") == 0)
 	{
-		exit(EXIT_SUCCESS);
+		handleBuiltin_exit(cmds, argv, ex_st, i_cmd);
 	}
 	else if (_my_strcmp(cmds[0], "env") == 0)
 	{
@@ -72,4 +74,28 @@ void handleBuiltin_cd(char **cmds, int *ex_st, char **ev)
 		}
 	}
 }
+/**
+ * handleBuiltin_exit - for exit builin
+ *
+ * @cmd_: command
+ * @final_status: status exit with
+ * @argv: array of args
+ * @cmd_i: command index
+ */
+void handleBuiltin_exit(char **cmd_, char **argv, int *final_status, int cmd_i)
+{
+	int status_ = *final_status;
 
+	if (cmd_[1] && check_digit(cmd_[1]))
+	{
+		status_ = _atoi(cmd_[1]);
+	}
+	else if (cmd_[1] && !check_digit(cmd_[1]))
+	{
+		printCustomError(argv[0], cmd_[1], cmd_i);
+		*final_status = 2;
+		return;
+	}
+	_free(cmd_);
+	exit(status_);
+}
