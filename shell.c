@@ -34,7 +34,7 @@ void handle_comm(char **_words, char **argv, int *ex_st, int cmd_c, char **env)
  * Return: Alwayes return 0
  */
 
-int main(int __attribute__((__unused__)) argc, char **argv, char **env)
+int main(int argc, char **argv, char **env)
 {
 	char *input_line;
 	int exit_status = 0;
