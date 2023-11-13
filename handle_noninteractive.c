@@ -38,7 +38,6 @@ void non_interactive(char *file_name, char **argv, char **envp)
 		{
 			excute_command(_words, argv, envp, command_count);
 		}
-		
 	}
 	free(input_line);
 	fclose(file);
