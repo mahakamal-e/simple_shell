@@ -79,7 +79,7 @@ char *_my_strcat(char *s1, char *s2)
  */
 char *_my_strdup(char *s)
 {
-	int length;
+	int length = 0;
 	int iterat;
 	char *new_str;
 

@@ -19,6 +19,10 @@ void non_interactive(char *file_name, char **argv, char **envp)
 		perror("Error opening input file");
 		exit(EXIT_FAILURE);
 	}
+	else
+	{
+		file = stdin;
+	}
 
 	while ((read_f = getline(&input_line, &len, file)) != -1)
 	{
