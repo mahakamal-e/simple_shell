@@ -12,12 +12,16 @@ void non_interactive(char *file_name, char **argv, char **envp)
 	ssize_t read_f;
 	char **_words;
 	int command_count = 0;
-	FILE *file = fopen(file_name, "r");
+	FILE *file;
 
-	if (!file)
+	if (file_name)
 	{
-		perror("Error opening input file");
-		exit(EXIT_FAILURE);
+		file = fopen(file_name, "r");
+		if (!file)
+		{
+			perror("Error opening input file");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
@@ -34,8 +38,10 @@ void non_interactive(char *file_name, char **argv, char **envp)
 		{
 			excute_command(_words, argv, envp, command_count);
 		}
+		
 	}
 	free(input_line);
 	fclose(file);
+
 
 }

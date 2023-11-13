@@ -70,5 +70,6 @@ int main(int __attribute__((__unused__)) argc, char **argv, char **env)
 			free(input_line);
 		}
 	}
+
 	return (exit_status);
 }
