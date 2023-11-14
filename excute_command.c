@@ -31,7 +31,7 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 			perror("Execve failed: unable to execute file");
 		}
 		free(p_cmd);
-		_free(command_)
+		_free(command_);
 		exit(EXIT_FAILURE);
 	}
 	else
