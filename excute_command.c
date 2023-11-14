@@ -22,6 +22,12 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 		_free(command_);
 		return (127);
 	}
+	if (access(p_cmd, X_OK) == -1)
+	{
+		printNot_foundError(argv[0], command_[0], cmd_c);
+		free(p_cmd), _free(command_);
+		return (127);
+	}
 
 	pid = fork();
 	if (pid == 0)

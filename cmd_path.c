@@ -1,4 +1,6 @@
 #include "shell.h"
+char *searchInDirectory(char *cmd_);
+char *searchInPath(char *_cmd, char *path_cmd);
 /**
  * path_command - function that handle path for excutable command
  *
