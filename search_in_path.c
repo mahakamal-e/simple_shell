@@ -18,7 +18,7 @@ char *searchInPath(char *_cmd, char *path_cmd)
 	struct stat fileState;
 
 	copy_path = _my_strdup(path_cmd);
-	link_ = strtok(copy_path, ":");
+	link_ = _my_strtok(copy_path, ":");
 
 	while (link_ != NULL)
 	{
@@ -37,7 +37,7 @@ char *searchInPath(char *_cmd, char *path_cmd)
 			}
 			free(command_);
 		}
-		link_ = strtok(NULL, ":");
+		link_ = _my_strtok(NULL, ":");
 	}
 	free(copy_path);
 	return (NULL);

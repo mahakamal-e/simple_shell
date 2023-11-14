@@ -89,4 +89,5 @@ void handleBuiltin_exit
 (char **cmd_, char **argv, int *final_status, int cmd_i);
 
 void non_interactive(char *file_name, char **argv, char **envp);
+char *_my_strtok(char *str_, const char *delim_);
 #endif

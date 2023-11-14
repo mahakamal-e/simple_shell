@@ -53,16 +53,17 @@ void _excuteEnv(char  __attribute__((unused)) **cmds, int *ex_st, char **ev)
  */
 void handleBuiltin_cd(char **cmds, int *ex_st, char **ev)
 {
+	char *dir;
+
 	if (cmds[1] == NULL)
 	{
-		char *dir = _getenv("HOME", ev);
-
+		dir = _getenv("HOME", ev);
 		if (dir != NULL)
 			chdir(dir);
 		else
 		{
 			PRINT_ERR("enviromental variable not set");
-			*ex_st = EXIT_FAILURE;
+			 *ex_st = EXIT_FAILURE;
 		}
 	}
 	else

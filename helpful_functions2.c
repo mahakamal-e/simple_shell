@@ -50,3 +50,15 @@ int _my_strncmp(char *s1, char *s2, size_t num)
 	}
 	return (0);
 }
+/**
+ * _my_strtok -  breaks string str into a series of tokens
+ * using the delimiter delim.
+ * @str_: string that breaked
+ * @delim_: This is the C string containing the delimiters
+ * Return: a pointer to the first token found in the string
+ * return NULL When there are no tokens left
+ */
+char *_my_strtok(char *str_, const char *delim_)
+{
+	return (strtok(str_, delim_));
+}

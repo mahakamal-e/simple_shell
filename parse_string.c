@@ -17,7 +17,7 @@ char **parse_string(char *input_line)
 	if (arr_str == NULL)
 		perror("failed to allocate memory"), exit(1);
 
-	while ((token = strtok(input_line, " \t\n\"")) != NULL)
+	while ((token = _my_strtok(input_line, " \t\n\"")) != NULL)
 	{
 		if (token[0] == '"')
 		{
