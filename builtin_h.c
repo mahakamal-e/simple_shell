@@ -41,6 +41,7 @@ void _excuteEnv(char  __attribute__((unused)) **cmds, int *ex_st, char **ev)
 
 		iterat++;
 	}
+	_free(cmds);
 	*ex_st = 0;
 
 }
