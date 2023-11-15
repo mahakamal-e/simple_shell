@@ -14,8 +14,7 @@
 
 
 
-#define BUFFER_SIZE 1024
-#define WHITESPACE " \t\n"
+#define WHITE " \t\n"
 #define PRINT_ERR(c) (write(STDERR_FILENO, c, _my_strlen(c)))
 #define PRINTF(str) (write(STDERR_FILENO, str, _my_strlen(str)))
 
