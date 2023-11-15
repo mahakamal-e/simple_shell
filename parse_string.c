@@ -1,44 +1,51 @@
 #include "shell.h"
-char **parse_string(char *line)
+/**
+ * parse_string - break input string into pieces
+ *
+ * @input_line: input string
+ *
+ * Return: array of broken down string (commands)
+ */
+char **parse_string(char *input_line)
 {
-	char *token = NULL, *temp = NULL;
-	char **tokens = NULL;
-	int i = 0, j = 0;
+	char *single_token = NULL;
+	char *temp_ = NULL;
+	char **arr_str = NULL;
+	int iterat, iterat_;
 
-	if (!line)
-	{
+	if (input_line == NULL)
 		return (NULL);
-	};
-	temp = _my_strdup(line);
-	token = strtok(temp, WHITESPACE);
-	if (token == NULL)
-	{
-		free(line), line = NULL;
-		free(temp), temp = NULL;
-		return (NULL);
-	}
-	while (token)
-	{
-		i++;
-		token = strtok(NULL, WHITESPACE);
-	}
-	free(temp), temp = NULL;
+	temp_ = _my_strdup(input_line);
 
-	tokens = malloc(sizeof(char *) * (i + 1));
-	if (!tokens)
+	single_token = strtok(temp_, " \t\n");
+
+	if (single_token == NULL)
 	{
-		free(line), line = NULL;
+		free(input_line);
+		free(temp_);
 		return (NULL);
 	}
-	token = strtok(line, WHITESPACE);
-	while (token)
+
+	for (iterat = 0; single_token; iterat++)
+		single_token = strtok(NULL, " \t\n");
+
+
+	free(temp_);
+
+	arr_str = malloc(sizeof(char *) * (iterat + 1));
+
+	if (!arr_str)
 	{
-		tokens[j] = _my_strdup(token);
-		token = strtok(NULL, WHITESPACE);
-		j++;
+		free(input_line);
+		return (NULL);
 	}
-	free(line), line = NULL;
-	tokens[j] = NULL;
-	return (tokens);
+	single_token = strtok(input_line, " \t\n");
+	for (iterat_ = 0; single_token; iterat_++)
+	{
+		arr_str[iterat_] = _my_strdup(single_token);
+		single_token = strtok(NULL, " \t\n");
+	}
+	free(input_line);
+	arr_str[iterat_] = NULL;
+	return (arr_str);
 }
-

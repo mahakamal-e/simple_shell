@@ -46,7 +46,7 @@ void handle_signal(int s);
 
 char *read_user_input(void);
 
-char **parse_string(char *line);
+char **parse_string(char *input_line);
 
 
 void handle_comm
