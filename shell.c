@@ -63,8 +63,6 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 		{
 			continue;
 		}
-		handle_comm(words_, argv, countCmd, envp);
-
-		/*excute_command(words_, argv, envp, countCmd);*/
+		excute_command(words_, argv, envp, countCmd);
 	}
 }
