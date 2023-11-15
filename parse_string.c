@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
  * parse_string - breaking down the input into small pieces
- * @str: input line from user (command)
+ * @input_line: input line from user (command)
  *
  * Return: pointer to array of broken command
  */
