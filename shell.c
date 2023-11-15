@@ -38,7 +38,7 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 {
 	char *input_line;
 	char **words_;
-	int status = 0;
+	int exit_status = 0;
 	int countCmd = 0;
 
 	while (1)
@@ -54,7 +54,7 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 			{
 				print_on_prompt();
 			}
-			return (status);
+			return (exit_status);
 		}
 		countCmd++;
 
@@ -63,7 +63,7 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 		{
 			continue;
 		}
-
-			status = excute_command(words_, argv, envp, countCmd);
+		
+		excute_command(words_, argv, envp, countCmd);
 	}
 }
