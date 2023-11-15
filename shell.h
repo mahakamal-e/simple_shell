@@ -25,7 +25,7 @@ char *_intToAscii(int n);
 void reverseStr(char *string, int length);
 int _execute(char **cmd, char **argv, char **environment, int indexNum);
 
-char **tokenize(char *line);
+char **tokenize(char *str);
 
 char *_handlePath(char *cmd, char **environment);
 
