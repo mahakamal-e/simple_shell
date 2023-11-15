@@ -34,7 +34,7 @@ void handle_comm(char **_words, char **argv, int *ex_st, int cmd_c, char **env)
  * Return: Alwayes return 0
  */
 
-int main(int argc, char **argv, char **env)
+int main(int __attribute__((unused)) argc, char **argv, char **env)
 {
 	char *input_line;
 	int exit_status = 0;
@@ -46,8 +46,7 @@ int main(int argc, char **argv, char **env)
 		non_interactive(argv[1], argv, env);
 		return (EXIT_SUCCESS);
 	}
-
-	if (isatty(STDIN_FILENO))
+	else if (isatty(STDIN_FILENO))
 	{
 		while (1)
 		{
@@ -67,9 +66,8 @@ int main(int argc, char **argv, char **env)
 			}
 
 			handle_comm(_words, argv, &exit_status, command_count, env);
-			free(input_line);
+			/*free(input_line);*/
 		}
 	}
-
 	return (exit_status);
 }

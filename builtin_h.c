@@ -30,7 +30,7 @@ void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev)
  * @ex_st: statust exit with
  * @ev: environment variables
  */
-void _excuteEnv(char  __attribute__((unused)) **cmds, int *ex_st, char **ev)
+void _excuteEnv(char **cmds, int __attribute__((unused))  *ex_st, char **ev)
 {
 	int iterat = 0;
 
@@ -38,12 +38,9 @@ void _excuteEnv(char  __attribute__((unused)) **cmds, int *ex_st, char **ev)
 	{
 		PRINTF(ev[iterat]);
 		PRINTF("\n");
-
 		iterat++;
 	}
 	_free(cmds);
-	*ex_st = 0;
-
 }
 
 /**

@@ -13,8 +13,8 @@
 #include <string.h>
 
 
-#define BUFFER_SIZE 1024
-#define DELIMITER_ " \t\n"
+
+#define WHITE " \t\n"
 #define PRINT_ERR(c) (write(STDERR_FILENO, c, _my_strlen(c)))
 #define PRINTF(str) (write(STDERR_FILENO, str, _my_strlen(str)))
 
@@ -90,4 +90,5 @@ void handleBuiltin_exit
 
 void non_interactive(char *file_name, char **argv, char **envp);
 char *_my_strtok(char *str_, const char *delim_);
+
 #endif
