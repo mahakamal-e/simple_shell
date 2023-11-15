@@ -40,6 +40,7 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 	char **words_;
 	int exit_status = 0;
 	int countCmd = 0;
+	char **arg;
 
 	while (1)
 	{
@@ -63,7 +64,13 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 		{
 			continue;
 		}
-		
-		exit_status = excute_command(words_, argv, envp, countCmd);
+		if (strcmp(words_, "exit") == 0)
+		{
+			_my_exit(arg);
+		}
+		else
+		{
+			exit_status = excute_command(words_, argv, envp, countCmd);
+		}
 	}
 }
