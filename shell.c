@@ -40,13 +40,11 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 	int command_count = 0;
 	char **_words;
 
-	if (argc > 1)
+	/*if (argc > 1)
 	{
 		non_interactive(argv[1], argv, env);
 		return (EXIT_SUCCESS);
-	}
-	else if (isatty(STDIN_FILENO))
-	{
+	}*/
 		while (1)
 		{
 			print_on_prompt();
@@ -55,7 +53,11 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 
 			if (input_line == NULL)
 			{
+			if (isatty(STDIN_FILENO))
+			{
 				print_on_prompt();
+			}
+			return (exit_status);
 			}
 			command_count++;
 			_words = parse_string(input_line);
@@ -63,10 +65,9 @@ int main(int __attribute__((unused)) argc, char **argv, char **env)
 			{
 				continue;
 			}
-
-			handle_comm(_words, argv, &exit_status, command_count, env);
+			exit_status = excute_command(_words, argv, env, command_count);
+			/*handle_comm(_words, argv, &exit_status, command_count, env);*/
 			/*free(input_line);*/
 		}
-	}
-	return (exit_status);
+	
 }
