@@ -36,7 +36,7 @@ void _excuteEnv(char  __attribute__((unused)) **cmds, int *ex_st, char **ev)
 
 	while (ev[iterat])
 	{
-		write(STDOUT_FILENO, ev[iterat], _strlen(ev[iterat]));
+		write(STDOUT_FILENO, ev[iterat], _my_strlen(ev[iterat]));
 		write(STDOUT_FILENO, "\n", 1);
 
 		iterat++;
