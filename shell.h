@@ -35,6 +35,7 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c);
 char *_getenv(char *name, char **envp);
 
 void _my_exit(char **arg);
+int _atoi(char *s);
 int _my_strlen(char *str);
 char *_my_strcpy(char *s1, char *s2);
 int _my_strcmp(char *s1, char *s2);
