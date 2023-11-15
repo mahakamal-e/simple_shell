@@ -6,12 +6,12 @@ char *_getenv(char *variable, char **environment)
 
 	for (i = 0; environment[i]; i++)
 	{
-		tmp = _my_strdup(environment[i]);
+		tmp = strdup(environment[i]);
 		key = strtok(tmp, "=");
-		if (_my_strcmp(key, variable) == 0)
+		if (strcmp(key, variable) == 0)
 		{
 			value = strtok(NULL, "\n");
-			env = _my_strdup(value);
+			env = strdup(value);
 			free(tmp), tmp = NULL;
 			return (env);
 		}
@@ -30,7 +30,7 @@ char *path_command(char *cmd, char **environment)
 		if (cmd[i] == '/')
 		{
 			if (stat(cmd, &state) == 0)
-				return (_my_strdup(cmd));
+				return (strdup(cmd));
 			return (NULL);
 		}
 	}
@@ -38,13 +38,13 @@ char *path_command(char *cmd, char **environment)
 	if (!pathEnv)
 		return (NULL);
 
-	pathEnvCopy = _my_strdup(pathEnv), directory = strtok(pathEnvCopy, ":");
+	pathEnvCopy = strdup(pathEnv), directory = strtok(pathEnvCopy, ":");
 	while (directory)
 	{
-		fullCmd = malloc(_my_strlen(directory) + _my_strlen(cmd) + 2);
+		fullCmd = malloc(strlen(directory) + strlen(cmd) + 2);
 		if (fullCmd)
 		{
-			_my_strcpy(fullCmd, directory), _my_strcat(fullCmd, "/"), _my_strcat(fullCmd, cmd);
+			_my_strcpy(fullCmd, directory), strcat(fullCmd, "/"), strcat(fullCmd, cmd);
 			if (stat(fullCmd, &state) == 0)
 			{
 				free(pathEnvCopy);
