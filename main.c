@@ -43,7 +43,7 @@ int main(int ac, char **argv, char **environment)
 		}
 		indexNum++;
 
-		tokens = tokenize(line);
+		tokens = parse_string(line);
 		if (!tokens)
 		{
 			continue;
