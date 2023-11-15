@@ -20,9 +20,6 @@
 
 extern char **environ;
 
-
-
-
 void print_on_prompt(void);
 
 int _my_strlen(char *str);
