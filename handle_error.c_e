@@ -49,7 +49,7 @@ void freeArray(char **arr)
 	};
 	free(arr), arr = NULL;
 }*/
-void printError(char *name, char *cmd, int indexNum)
+void printNot_foundError(char *command_name, char *cmd_, int cmd_c)
 {
 	char *index, errMessage[] = ": not found\n";
 

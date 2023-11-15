@@ -17,12 +17,16 @@
 #define PRINTF(str) (write(STDERR_FILENO, str, strlen(str)))
 #define WHITESPACE " \t\n"
 
-void freeArray(char **arr);
+/*void freeArray(char **arr);
 void printError(char *name, char *cmd, int indexNum);
 
 char *_intToAscii(int n);
 
 void reverseStr(char *string, int length);
+*/
+char *_convert_int(int num);
+void printNot_foundError(char *command_name, char *cmd_, int cmd_c);
+
 int _execute(char **cmd, char **argv, char **environment, int indexNum);
 
 char **parse_string(char *input_line);

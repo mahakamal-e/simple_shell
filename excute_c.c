@@ -18,7 +18,7 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 
 	if (!p_cmd)
 	{
-		printError(argv[0], command_[0], cmd_c);
+		printNot_foundError(argv[0], command_[0], cmd_c);
 		_free(command_);
 		return (127);
 	}
@@ -65,6 +65,7 @@ void _free(char **input)
 	while (input[iterat] != NULL)
 	{
 		free(input[iterat]);
+		input[iterat] = NULL;
 		iterat++;
 	}
 	free(input);
