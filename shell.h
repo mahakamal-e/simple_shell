@@ -41,5 +41,4 @@ char *_my_strcat(char *s1, char *s2);
 
 char *_my_strdup(char *s);
 char *_my_strtok(char *str_, const char *delim_);
-void handle_comm(char **_words, char **argv, int cmd_c, char **env);
 #endif
