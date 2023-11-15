@@ -5,7 +5,7 @@ int _execute(char **cmd, char **argv, char **environment, int indexNum)
 	pid_t childProcess;
 	int status;
 
-	fullCmd = path_command(cmd[0], environment);
+	fullCmd = _handlePath(cmd[0], environment);
 
 	if (!fullCmd)
 	{

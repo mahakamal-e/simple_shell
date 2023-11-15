@@ -9,7 +9,7 @@ void print_on_prompt(void)
 }
 /**
  * read_user_input - read input from user
- *
+ * Return: what function read
  */
 char *read_user_input(void)
 {
@@ -64,6 +64,5 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 		}
 
 			status = _execute(words_, argv, envp, indexNum);
-	
 	}
 }
