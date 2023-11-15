@@ -63,7 +63,7 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 		{
 			continue;
 		}
-		if (strcmp(args[0], "exit") == 0)
+		if (strcmp(words_[0], "exit") == 0)
 		{
 			exit(0);
 		}
