@@ -1,5 +1,5 @@
 #include "shell.h"
-int _execute(char **cmd, char **argv, char **environment, int indexNum)
+/**int _execute(char **cmd, char **argv, char **environment, int indexNum)
 {
 	char *fullCmd;
 	pid_t childProcess;
@@ -48,7 +48,7 @@ void freeArray(char **arr)
 		free(arr[i]), arr[i] = NULL;
 	};
 	free(arr), arr = NULL;
-}
+}*/
 void printError(char *name, char *cmd, int indexNum)
 {
 	char *index, errMessage[] = ": not found\n";

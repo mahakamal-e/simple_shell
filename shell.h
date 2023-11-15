@@ -31,5 +31,12 @@ char *path_command(char *cmd_, char __attribute__((unused)) **envp);
 char *searchInDirectory(char *cmd_);
 char *searchInPath(char *_cmd, char *path_cmd);
 
+void printError(char *name, char *cmd, int indexNum);
+char *_intToAscii(int n);
+void reverseStr(char *string, int length);
+
+void _free(char **input);
+int excute_command(char **command_, char **argv, char **envp, int cmd_c);
+
 char *_getEnvironment(char *variable, char **environment);
 #endif

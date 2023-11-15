@@ -63,6 +63,6 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 			continue;
 		}
 
-			status = _execute(words_, argv, envp, indexNum);
+			status = excute_command(words_, argv, envp, indexNum);
 	}
 }
