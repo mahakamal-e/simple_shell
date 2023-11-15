@@ -19,6 +19,10 @@
 
 extern char **environ;
 
+char *path_command(char *cmd, char **environment);
+char *_getenv(char *variable, char **environment);
+
+
 void print_on_prompt(void);
 
 int _my_strlen(char *str);
@@ -57,17 +61,17 @@ void printCustomError(char *command_name, char *cmd_, int cmd_c);
 
 int excute_command(char **command_, char **argv, char **envp, int cmd_c);
 
-char *searchInDirectory(char *cmd_);
+/*char *searchInDirectory(char *cmd_);
 
 char *searchInPath(char *_cmd, char *path_cmd);
 
 char *path_command(char *cmd_, char __attribute__((unused)) **envp);
-
+*/
 int check_builtin(char *cmd_);
 
 void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev);
 void _excuteEnv(char **cmds, int *ex_st, char **ev);
-char *_getenv(char *name, char **envp);
+/*char *_getenv(char *name, char **envp);*/
 
 void _free(char **input);
 
