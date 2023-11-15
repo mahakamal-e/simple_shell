@@ -27,11 +27,9 @@ int _execute(char **cmd, char **argv, char **environment, int indexNum);
 
 char **parse_string(char *input_line);
 
-/*
 char *path_command(char *cmd_, char __attribute__((unused)) **envp);
 char *searchInDirectory(char *cmd_);
 char *searchInPath(char *_cmd, char *path_cmd);
-*/
-char *_handlePath(char *cmd, char **environment);
+
 char *_getEnvironment(char *variable, char **environment);
 #endif
