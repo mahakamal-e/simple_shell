@@ -20,7 +20,7 @@ char *path_command(char *cmd_, char __attribute__((unused)) **envp)
 			return (searchInDirectory(cmd_));
 		iterat++;
 	}
-	path_cmd = _getEnvironment("PATH", envp);
+	path_cmd = _getenv("PATH", envp);
 	if (path_cmd == NULL)
 		return (NULL);
 

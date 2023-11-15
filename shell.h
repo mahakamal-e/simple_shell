@@ -38,5 +38,5 @@ void reverseStr(char *string, int length);
 void _free(char **input);
 int excute_command(char **command_, char **argv, char **envp, int cmd_c);
 
-char *_getEnvironment(char *variable, char **environment);
+char *_getenv(char *name, char **envp);
 #endif

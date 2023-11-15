@@ -38,7 +38,8 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 {
 	char *input_line;
 	char **words_;
-	int status = 0, indexNum = 0;
+	int status = 0;
+	int countCmd = 0;
 
 	while (1)
 	{
@@ -55,7 +56,7 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 			}
 			return (status);
 		}
-		indexNum++;
+		countCmd++;
 
 		words_ = parse_string(input_line);
 		if (words_ == NULL)
@@ -63,6 +64,6 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 			continue;
 		}
 
-			status = excute_command(words_, argv, envp, indexNum);
+			status = excute_command(words_, argv, envp, countCmd);
 	}
 }
