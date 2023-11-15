@@ -91,8 +91,4 @@ void handleBuiltin_exit
 void non_interactive(char *file_name, char **argv, char **envp);
 char *_my_strtok(char *str_, const char *delim_);
 
-void executeEnvCommand(char **env);
-void print_nonEmpty(char **env);
-void retain_EnvironmentV (const char *var_, char **env);
-
 #endif

@@ -32,16 +32,15 @@ void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev)
  */
 void _excuteEnv(char **cmds, int __attribute__((unused))  *ex_st, char **ev)
 {
-	if (cmds[1] != NULL && strcmp(cmds[1], "execute") == 0)
-	{
-		retain_EnvironmentV("VARIABLE_TO_KEEP", ev);
-		executeEnvCommand(ev);
-	}
-	else
-	{
-		print_nonEmpty(ev);
-	}
+	int iterat = 0;
 
+	while (ev[iterat])
+	{
+		PRINTF(ev[iterat]);
+		PRINTF("\n");
+		iterat++;
+	}
+	_free(cmds);
 }
 
 /**
