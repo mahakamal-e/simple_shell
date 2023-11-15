@@ -46,8 +46,7 @@ int main(int argc, char **argv, char **env)
 		non_interactive(argv[1], argv, env);
 		return (EXIT_SUCCESS);
 	}
-
-	if (isatty(STDIN_FILENO))
+	else if (isatty(STDIN_FILENO))
 	{
 		while (1)
 		{
@@ -67,9 +66,8 @@ int main(int argc, char **argv, char **env)
 			}
 
 			handle_comm(_words, argv, &exit_status, command_count, env);
-			free(input_line);
+			/*free(input_line);*/
 		}
 	}
-
 	return (exit_status);
 }
