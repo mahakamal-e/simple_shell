@@ -10,10 +10,10 @@ void retain_EnvironmentV(const char *var_, char **env)
 	int iterat = 0;
 	while (env[iterat] != NULL)
 	{
-		if (_my_strncmp(env[iterat], var_, _my_strlen(var_)) != 0 ||
-				env[iterat][_my_strlen(var_)] != '=')
+		if (strncmp(env[iterat], var_, strlen(var_)) != 0 ||
+				env[iterat][strlen(var_)] != '=')
 		{
-			env[i][0] = '\0';
+			env[iterat][0] = '\0';
 		}
 		iterat++;
 	}
@@ -31,26 +31,18 @@ void print_nonEmpty(char **env)
 		if (env[iterat][0] != '\0')
 		{
 			PRINTF(env[iterat]);
-			PRINTF('\n');
+			PRINTF("\n");
 		}
+		iterat++;
 	}
-	iterat++;
+
 }
 /**
  * displayEn - function excutes env command
  * @env: env variables
  */
-void executeEnvCommand(char **env) {
-    printf("\nExecuting 'env':\n");
-    execle("/usr/bin/env", "env", NULL, env);
+void executeEnvCommand(char **env)
+{
+	printf("\nExecuting 'env':\n");
+	execle("/usr/bin/env", "env", NULL, env);
 }
-
-void handleEnvCase(char **cmds, int *ex_st, char **ev) {
-    if (cmds[1] != NULL && strcmp(cmds[1], "execute") == 0) {
-        retainOnlyOneEnvironmentVariable("VARIABLE_TO_KEEP", ev);
-        executeEnvCommand(ev);
-    } else {
-        printEnvironment(ev);
-    }
-}
-

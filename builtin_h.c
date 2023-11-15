@@ -9,11 +9,11 @@
  */
 void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev)
 {
-	if (strcmp(cmds[0], "exit") == 0)
+	if (_my_strcmp(cmds[0], "exit") == 0)
 	{
 		handleBuiltin_exit(cmds, argv, ex_st, i_cmd);
 	}
-	else if (strcmp(cmds[0], "env") == 0)
+	else if (_my_strcmp(cmds[0], "env") == 0)
 	{
 		_excuteEnv(cmds, ex_st, ev);
 	}
@@ -30,19 +30,17 @@ void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev)
  * @ex_st: statust exit with
  * @ev: environment variables
  */
-void _excuteEnv(char  __attribute__((unused)) **cmds, int *ex_st, char **ev)
+void _excuteEnv(char **cmds, int __attribute__((unused))  *ex_st, char **ev)
 {
-	int iterat = 0;
-
-	while (ev[iterat])
+	if (cmds[1] != NULL && strcmp(cmds[1], "execute") == 0)
 	{
-		write(STDOUT_FILENO, ev[iterat], _my_strlen(ev[iterat]));
-		write(STDOUT_FILENO, "\n", 1);
-
-		iterat++;
+		retain_EnvironmentV("VARIABLE_TO_KEEP", ev);
+		executeEnvCommand(ev);
 	}
-	_free(cmds);
-	*ex_st = 0;
+	else
+	{
+		print_nonEmpty(ev);
+	}
 
 }
 
