@@ -10,7 +10,7 @@ char **parse_string(char *input_line)
 	char *single_token = NULL;
 	char *temp_ = NULL;
 	char **arr_str = NULL;
-	int iterat, iterat_;
+	int iterat = 0, iterat_;
 
 	if (input_line == NULL)
 		return (NULL);
@@ -25,8 +25,11 @@ char **parse_string(char *input_line)
 		return (NULL);
 	}
 
-	for (iterat = 0; single_token; iterat++)
+	while (single_token)
+	{
+		iterat++;
 		single_token = strtok(NULL, " \t\n");
+	}
 	free(temp_);
 	arr_str = malloc(sizeof(char *) * (iterat + 1));
 

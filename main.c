@@ -1,9 +1,16 @@
 #include "shell.h"
-
+/**
+ * print_on_prompt - print $ on stdin
+ *
+ */
 void print_on_prompt(void)
 {
 	PRINTF("$ ");
 }
+/**
+ * read_user_input - read input from user
+ *
+ */
 char *read_user_input(void)
 {
 	ssize_t read_char;
@@ -20,11 +27,18 @@ char *read_user_input(void)
 	}
 	return (input_);
 }
-int main(int ac, char **argv, char **environment)
+/**
+ * main - the core point for project
+ * @argc: number of args
+ * @argv: array of arguments
+ * @envp: array of enviromental variabls
+ * Return: 0 on SUCCESS
+ */
+int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 {
-	char *line, **tokens;
+	char *input_line;
+	char **words_;
 	int status = 0, indexNum = 0;
-	(void)ac;
 
 	while (1)
 	{
@@ -32,24 +46,24 @@ int main(int ac, char **argv, char **environment)
 		{
 		print_on_prompt();
 		}
-		line = read_user_input();
-		if (line == NULL)
+		input_line = read_user_input();
+		if (input_line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
 			{
-				write(STDOUT_FILENO, "$ ", 2);
+				print_on_prompt();
 			}
 			return (status);
 		}
 		indexNum++;
 
-		tokens = parse_string(line);
-		if (!tokens)
+		words_ = parse_string(input_line);
+		if (words_ == NULL)
 		{
 			continue;
 		}
 
-			status = _execute(tokens, argv, environment, indexNum);
+			status = _execute(words_, argv, envp, indexNum);
 	
 	}
 }
