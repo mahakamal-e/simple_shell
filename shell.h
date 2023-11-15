@@ -28,7 +28,7 @@ char *path_command(char *cmd_, char __attribute__((unused)) **envp);
 char *searchInDirectory(char *cmd_);
 char *searchInPath(char *_cmd, char *path_cmd);
 
-
+void exitError_(char *command_name, char *cmd_, int cmd_c);
 void _free(char **input);
 int excute_command(char **command_, char **argv, char **envp, int cmd_c);
 
