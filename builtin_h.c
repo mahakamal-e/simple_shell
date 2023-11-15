@@ -9,7 +9,7 @@
  */
 void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev)
 {
-	if (_my_strcmp(cmds[0], "exit") == 0)
+	if (strcmp(cmds[0], "exit") == 0)
 	{
 		handleBuiltin_exit(cmds, argv, ex_st, i_cmd);
 	}
