@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * handle_comm - handle the command enter from user to check if builtin
  *
