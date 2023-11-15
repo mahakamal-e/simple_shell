@@ -13,8 +13,9 @@
 #include <string.h>
 
 
+
 #define BUFFER_SIZE 1024
-#define DELIMITER_ " \t\n"
+#define WHITESPACE " \t\n"
 #define PRINT_ERR(c) (write(STDERR_FILENO, c, _my_strlen(c)))
 #define PRINTF(str) (write(STDERR_FILENO, str, _my_strlen(str)))
 
@@ -45,7 +46,7 @@ void handle_signal(int s);
 
 char *read_user_input(void);
 
-char **parse_string(char *input_line);
+char **parse_string(char *line);
 
 
 void handle_comm
