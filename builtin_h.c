@@ -13,7 +13,7 @@ void bultin_slctr(char **cmds, char **argv, int *ex_st, int i_cmd, char **ev)
 	{
 		handleBuiltin_exit(cmds, argv, ex_st, i_cmd);
 	}
-	else if (_my_strcmp(cmds[0], "env") == 0)
+	else if (strcmp(cmds[0], "env") == 0)
 	{
 		_excuteEnv(cmds, ex_st, ev);
 	}
@@ -36,8 +36,8 @@ void _excuteEnv(char  __attribute__((unused)) **cmds, int *ex_st, char **ev)
 
 	while (ev[iterat])
 	{
-		PRINTF(ev[iterat]);
-		PRINTF("\n");
+		write(STDOUT_FILENO, ev[iterat], _strlen(ev[iterat]));
+		write(STDOUT_FILENO, "\n", 1);
 
 		iterat++;
 	}
