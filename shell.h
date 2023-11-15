@@ -38,7 +38,6 @@ int _my_strlen(char *str);
 char *_my_strcpy(char *s1, char *s2);
 int _my_strcmp(char *s1, char *s2);
 char *_my_strcat(char *s1, char *s2);
-
 char *_my_strdup(char *s);
 char *_my_strtok(char *str_, const char *delim_);
 #endif
