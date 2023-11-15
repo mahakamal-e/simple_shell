@@ -23,6 +23,7 @@ int excute_command(char **command_, char **argv, char **envp, int cmd_c)
 		return (127);
 	}
 
+
 	pid = fork();
 	if (pid == 0)
 	{

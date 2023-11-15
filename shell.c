@@ -63,7 +63,13 @@ int main(int __attribute__((__unused__))  argc, char **argv, char **envp)
 		{
 			continue;
 		}
-
-		exit_status = excute_command(words_, argv, envp, countCmd);
+		if (strcmp(args[0], "exit") == 0)
+		{
+			exit(0);
+		}
+		else
+		{
+			exit_status = excute_command(words_, argv, envp, countCmd);
+		}
 	}
 }
