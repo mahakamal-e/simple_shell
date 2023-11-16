@@ -15,12 +15,10 @@
 
 #define PRINT_ERR(c) (write(STDERR_FILENO, c, strlen(c)))
 #define PRINTF(str) (write(STDERR_FILENO, str, strlen(str)))
-#define WHITESPACE " \t\n"
+
 
 char *_convert_int(int num);
 void printNot_foundError(char *command_name, char *cmd_, int cmd_c);
-
-int _execute(char **cmd, char **argv, char **environment, int indexNum);
 
 char **parse_string(char *input_line);
 
